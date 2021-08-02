@@ -5,6 +5,10 @@ export const Wrapper = styled.div `
     margin: 0 auto;
     padding: 10px 30px;
     text-align: center;
+
+    @media screen and (max-width: 760px){
+        padding: 0 20px;
+    }
    
 `;
 

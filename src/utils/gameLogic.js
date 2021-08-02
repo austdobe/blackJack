@@ -1,3 +1,7 @@
+let player = {}
+let dealer = {}
+let updatedDeck = []
+
 // create 52 card Deck by matching number with each suit
 const createDeck = () => {
     // const suits = [ 'H', 'C', 'D', 'S'];
@@ -10,7 +14,7 @@ const createDeck = () => {
         //run loop to separate the numbers and combine them with the available 4 suits.
         for( let ranksCounter = 0; ranksCounter<ranks.length; ranksCounter++ ){
             
-            deck.push({ rank:ranks[ranksCounter], suit:suits[suitCounter]});
+            deck.push({rank:ranks[ranksCounter], suit:suits[suitCounter]});
             
             
         };
@@ -28,19 +32,35 @@ const getRandomCard = (deck) => {
     return { randomCard, updatedDeck };
 }
 const getCount = (cards) => {
-    const rearranged = [];
-    cards.forEach(card => {
-      if (card.number === 'A') {
-        rearranged.push(card);
-      } else if (card.number) {
-        rearranged.unshift(card);
-      }
-    })
+  const rearranged = [];
+  cards.forEach(ranks => {
+    if (ranks.rank === 'A') {
+      rearranged.push(ranks);
+    } else if (ranks.rank) {
+      rearranged.unshift(ranks);
+    }
+  })
+  return rearranged.reduce((total, ranks) => {
+    if (ranks.rank === 'J' || ranks.rank === 'Q' || ranks.rank === 'K') {
+      return total + 10;
+    } else if (ranks.rank === 'A') {
+      return (total + 11 <= 21) ? total + 11 : total + 1;
+    } else {
+      return total + ranks.rank;
+    }
+  }, 0);
+}
+
+export const hit = () =>{
+  player.cards.push(getRandomCard(updatedDeck))
+
+  return player
+
 }
 
 const initialCards = () =>{
     const deck = createDeck();
-
+   
     //Randomizing playing cards
    const playerCardOne = getRandomCard(deck)
    const dealerCardOne = getRandomCard(playerCardOne.updatedDeck)
@@ -50,15 +70,16 @@ const initialCards = () =>{
    const playerStartingHand = [playerCardOne.randomCard, playerCardTwo.randomCard];
    const dealerStartingHand = [dealerCardOne.randomCard, {}];
    //creating object to hold both count and cards for dealer and player
-   const player = {
+   player = {
      cards: playerStartingHand,
      count: getCount(playerStartingHand)
    };
-   const dealer = {
+   dealer = {
      cards: dealerStartingHand,
      count: getCount(dealerStartingHand)
    };
-   
+
+   //Add more cards
       
    return {updatedDeck: playerCardTwo.updatedDeck, player, dealer}
 };

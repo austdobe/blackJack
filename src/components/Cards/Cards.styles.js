@@ -1,20 +1,25 @@
 import styled from 'styled-components';
+import cardBack from '../../images/cardBackground.jpg'
 
 export const Wrapper = styled.div ` 
     color: var(--darkGrey);
     background: var(--white);
-    border-radius: 20px;
-    padding: 5px;
+    border-radius: 15px;
     height: 200px;
     width: 150px;
 
+    .background{
+        background-image: url(${cardBack});
+        background-position: center;
+        background-size:cover;
+    }
    
    .card-red{
        color: red;
    }
    @media screen and (max-width: 760px){
-       height: 150px;
-       width: 90px;
+        height: 150px;
+        width: 90px;
    }
 `;
 
@@ -31,9 +36,6 @@ export const Content = styled.div `
         top:5px;
         left: 5px;
 
-       
-            
-       
    }
    .bottomRank{
        position: absolute;

@@ -4,13 +4,14 @@ import React from 'react';
 import { Wrapper, Content } from './Cards.styles';
 
 
-const Card = ( { suit, rank } ) =>{
-    const color = (suit === '♦' || suit === '♥') ? 'card-red' : 'card';
 
-      
+
+const Card = ( { suit, rank } ) =>{
+    let color = (suit === '♦' || suit === '♥') ? 'card-red' : 'card';
+    
 return(  
     <Wrapper>
-        <Content className={color}>
+        <Content className={suit ? `${color}`: 'background'}>
             <div className='topRank'>
                 <span>{rank}</span>
             </div>

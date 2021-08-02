@@ -3,10 +3,16 @@ import React from 'react';
 import { PlayingTable, Wrapper } from './Table.styles'
 //Components
 import Card from '../components/Cards';
-import Grid from '../components/Grid'
+import Grid from '../components/Grid';
+import ControlBar from '../components/ControlBar';
+import Button from '../components/Button'
 
 //Utils
 import initialCards from '../utils/gameLogic'
+import hit from '../utils/gameLogic'
+
+
+
 
 
 //States
@@ -17,6 +23,8 @@ const {
 } = initialCards()
 console.log(updatedDeck)
 console.log(player.cards)
+console.log(player.count)
+console.log(dealer.cards)
 
 
 
@@ -52,6 +60,14 @@ const Table = () =>{
                     
                 </Grid>
             </PlayingTable>
+            <ControlBar>
+                <Button text="Hit" callback={() => {
+                hit();
+                console.log('click');
+                }}/>
+                <Button text="Stay" />
+                
+            </ControlBar>
         </Wrapper>
         
     
