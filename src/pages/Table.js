@@ -5,42 +5,36 @@ import { PlayingTable, Wrapper } from './Table.styles'
 import Card from '../components/Cards';
 import Grid from '../components/Grid';
 import ControlBar from '../components/ControlBar';
-import Button from '../components/Button'
-
 //Utils
-import initialCards from '../utils/gameLogic'
-import hit from '../utils/gameLogic'
+import { InitialCards } from '../utils/gameLogic'
 
 
 
 
 
-//States
+// console.log(updatedDeck)
+// console.log(player.cards)
+// console.log(player.count)
+// console.log(dealer.cards)
+
+export const Table = () =>{
+    // States
 const {
-    updatedDeck,
-    player,
-    dealer
-} = initialCards()
-console.log(updatedDeck)
-console.log(player.cards)
-console.log(player.count)
-console.log(dealer.cards)
+    state,
+    setIsAddingCards
+} = InitialCards()
+console.log(state.dealer)
+console.log(state.player)
+console.log(state)
 
-
-
-
-
-const Table = () =>{
-
-   
-     
+      
 
    return (
     
         <Wrapper>
             <PlayingTable>
                 <Grid header="Dealer's Cards">
-                    {dealer.cards.map((card, index )=>(
+                    {state.dealer.cards.map((card, index )=>(
                         <Card
                             key={index}
                             rank={card.rank}
@@ -50,7 +44,7 @@ const Table = () =>{
                     
                 </Grid>
                 <Grid header = "Your Cards">
-                   {player.cards.map((card, index) =>(
+                   {state.player.cards.map((card, index) =>(
                     <Card
                         key={index}
                         rank={card.rank}
@@ -60,14 +54,8 @@ const Table = () =>{
                     
                 </Grid>
             </PlayingTable>
-            <ControlBar>
-                <Button text="Hit" callback={() => {
-                hit();
-                console.log('click');
-                }}/>
-                <Button text="Stay" />
-                
-            </ControlBar>
+            <ControlBar callback={()=> setIsAddingCards(true)}/>
+            
         </Wrapper>
         
     

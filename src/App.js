@@ -1,7 +1,6 @@
-import './App.css';
+import React from 'react'
 import Table from './pages/Table'
 
-//styles
 //styles
 import { GlobalStyle } from './GlobalStyles';
 
