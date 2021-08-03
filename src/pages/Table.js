@@ -8,24 +8,17 @@ import ControlBar from '../components/ControlBar';
 //Utils
 import { InitialCards } from '../utils/gameLogic'
 
-
-
-
-
-// console.log(updatedDeck)
-// console.log(player.cards)
-// console.log(player.count)
-// console.log(dealer.cards)
-
 export const Table = () =>{
     // States
 const {
-    state,
+    player,
+    dealer,
+    purse,
     setIsAddingCards
 } = InitialCards()
-console.log(state.dealer)
-console.log(state.player)
-console.log(state)
+
+console.log(player)
+console.log(dealer)
 
       
 
@@ -34,7 +27,7 @@ console.log(state)
         <Wrapper>
             <PlayingTable>
                 <Grid header="Dealer's Cards">
-                    {state.dealer.cards.map((card, index )=>(
+                    {dealer.cards.map((card, index )=>(
                         <Card
                             key={index}
                             rank={card.rank}
@@ -44,7 +37,7 @@ console.log(state)
                     
                 </Grid>
                 <Grid header = "Your Cards">
-                   {state.player.cards.map((card, index) =>(
+                   {player.cards.map((card, index) =>(
                     <Card
                         key={index}
                         rank={card.rank}
@@ -54,7 +47,7 @@ console.log(state)
                     
                 </Grid>
             </PlayingTable>
-            <ControlBar callback={()=> setIsAddingCards(true)}/>
+            <ControlBar money={purse}count={player.count} callback={()=> setIsAddingCards(true)}/>
             
         </Wrapper>
         

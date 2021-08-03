@@ -1,34 +1,44 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import { useState, useEffect } from 'react';
 
 
-const initialState = {
-  player: {
-    cards: [],
-    count: 0
-  },
-  dealer: {
-    cards:[],
-    count: 0
-  },
+const initialPlayer = {
+  cards: [],
+  count: 0
+}
+const initialDealer={
+  cards:[],
+  count: 0
 }
 
 export const InitialCards = () =>{
   //Setting States
-  const [state, setState]=useState(initialState);
+  const [player, setPlayer]=useState(initialPlayer);
+  const [dealer, setDealer]=useState(initialDealer)
   const [deck, setDeck]=useState({});
   const [isAddingCards, setIsAddingCards]=useState(false);
   const [isStaying, setIsStaying]=useState(false);
   const [newGame, setNewGame]=useState(true);
-  const [cardCount, setCardCount]=useState(2)
+  const [purse, setPurse]=useState(200)
+  
   
   //Create 52 card Deck by matching number with each suit
   const suits = ['♦','♣','♥','♠'];
   const ranks = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
-  let updatedDeck = [];
-  let tempHands = {player:{cards:[],count:0}, dealer:{cards:[],count:0}}
-  let tempDeck = []
   
+  let updatedDeck = [];
+  let tempCards =[];
+  let tempPlayer={
+      cards:[],
+      count:0
+  }
+  let tempDealer = {
+      cards:[],
+      count:0
+  }
+  let tempDeck = []
+  const shuffleDeck=()=>{
     //running a loop to separate the 4 suits, Hearts/Clubs/Diamonds/Spades
     for( let suitCounter = 0; suitCounter<suits.length; suitCounter ++ ) {
         //run loop to separate the numbers and combine them with the available 4 suits.
@@ -45,116 +55,100 @@ export const InitialCards = () =>{
             updatedDeck[i] = updatedDeck[ randomNum ];
             updatedDeck[ randomNum ] = tempCard;
     };
-
+  }
+  const setHands = (cardCount) =>{
     for ( let j = 0; j < cardCount; j++){
-        tempDeck = updatedDeck
-        tempHands.player.cards.push({rank:tempDeck[j].rank, suit:tempDeck[j].suit})
-        let newDeck = tempDeck.slice(1)
-        // console.log(newDeck)
-        tempHands.dealer.cards.push({rank:newDeck[j].rank, suit:newDeck[j].suit})
-        updatedDeck = newDeck.slice(1)
+         if(cardCount === 2){ 
+          tempDeck = updatedDeck
+          tempPlayer.cards.push({rank:tempDeck[j].rank, suit:tempDeck[j].suit})
+          let newDeck = tempDeck.slice(1)
+          // console.log(newDeck)
+          tempDealer.cards.push({rank:newDeck[j].rank, suit:newDeck[j].suit})
+          updatedDeck=newDeck.slice(1)
         
-        // console.log(updatedDeck)
-        
+        console.log(updatedDeck)
+         }else{
+           updatedDeck=deck
+          tempCards.push({rank:updatedDeck[j].rank, suit:updatedDeck[j].suit})
+          updatedDeck = updatedDeck.slice(1)
+          
+         
+         }
+         
     }
+  }
+  // const addCard = () => {
+  //   tempCard = deck[0]
+  //   console.log("temp " + tempCard)
+  //   tempPlayer.cards.push({rank:tempCard.rank, suit:tempCard.suit})
+  //   updatedDeck = deck.slice(1)
+  //   setPlayer({
     
-    const getCount=(cards, person)=> {
+  //     cards: tempPlayer.cards.push({rank:tempCard.rank, suit:tempCard.suit}),
+  //     count: getCount(tempPlayer.cards)
+     
+  //   })  
+    
+  // }
+  
+    
+    const getCount=(cards)=> {
       const rearranged = [];
       cards.forEach(card => {
-        if (card.number === 'A') {
+        if (card.rank === 'A') {
           rearranged.push(card);
-        } else if (card.number) {
+        } else if (card.rank) {
           rearranged.unshift(card);
         }
       });
       
       return rearranged.reduce((total, card) => {
-        if (card.number === 'J' || card.number === 'Q' || card.number === 'K') {
+        if (card.rank === 'J' || card.rank === 'Q' || card.rank === 'K') {
           return (total + 10);
-        } else if (card.number === 'A') {
+        } else if (card.rank === 'A') {
           return (total + 11 <= 21) ? total + 11 : total + 1;
         } else {
-          return total + card.number;
+          return total + card.rank;
         }
       }, 0);
-    }
-    
-    
-     
+    };
   
-    
-    useEffect(()=>{
-      if(!newGame) return;
-      
-      setDeck(updatedDeck)
-      setNewGame(false)
-      setState(tempHands)
-      setCardCount(1)
-      
-    }, [updatedDeck, newGame, isAddingCards, tempHands])
-    console.log(deck)
-    console.log(state)
-    console.log(cardCount)
-
-    
    
-    
-    
-
-
-//   const rearranged = [];
-//   cards.forEach(ranks => {
-//     if (ranks.rank === 'A') {
-//       rearranged.push(ranks);
-//     } else if (ranks.rank) {
-//       rearranged.unshift(ranks);
-//     }
-//   })
-//   return rearranged.reduce((total, ranks) => {
-//     if (ranks.rank === 'J' || ranks.rank === 'Q' || ranks.rank === 'K') {
-//       return total + 10;
-//     } else if (ranks.rank === 'A') {
-//       return (total + 11 <= 21) ? total + 11 : total + 1;
-//     } else {
-//       return total + ranks.rank;
-//     }
-//   }, 0);
-  
-//  Randomizing playing cards
-  // const playerCardOne = this.getRandomCard(deck)
-  // const dealerCardOne = this.getRandomCard(playerCardOne.updatedDeck)
-  // const playerCardTwo = getRandomCard(dealerCardOne.updatedDeck)
-
-  // //Pushing rank and suits to hands
-  // const playerStartingHand = [playerCardOne.randomCard, playerCardTwo.randomCard];
-  // const dealerStartingHand = [dealerCardOne.randomCard, {}];
-  // //creating object to hold both count and cards for dealer and player
-  // setState(()=>({
-  //   player:{
-  //     cards: playerStartingHand,
-  //     count: this.getCount(playerStartingHand)
-  //   },
-  //   dealer:{
-  //     cards: dealerStartingHand,
-  //     count: this.getCount(dealerStartingHand)
-  //   }
-  // }))
-
-
+    useEffect(()=>{
+      if(!newGame && isAddingCards){
+        setHands(1) 
+        setPlayer(prev =>({
           
-    return {state}
+          cards: [...prev.cards, tempCards.rank, tempCards.suit],
+          count: getCount(tempPlayer.cards)
+         
+        }))
+        
+    
+        setIsAddingCards(false)
+      }else if(newGame){
+      shuffleDeck()
+      setDeck(updatedDeck)
+      setHands(2)
+      setNewGame(false)
+      setPlayer({
+          cards:tempPlayer.cards,
+          count:getCount(tempPlayer.cards)
+      });
+      setDealer({
+          cards:tempDealer.cards,
+          count:getCount(tempDealer.cards)
+      });
+    } 
+    }, [updatedDeck, newGame, isAddingCards, tempDealer, tempPlayer, setHands, shuffleDeck])
+    console.log(deck)
+    console.log('player '+ player)
+    console.log('dealer '+ dealer)
+
+    return {player, dealer, purse, setIsAddingCards}
 };
 
-// const hit=() =>{
-//   const newRandomCard = deck[0]
-//   tempHands.cards.push(newRandomCard.randomCard)
-//   person.count = this.getCount(person.cards)
-//   console.log(newRandomCard)
-//   console.log(person)
-  
 
- 
-// }
 
 
 
