@@ -24,6 +24,9 @@ export const PlayingTable = styled.div `
     @media screen and (max-width: 768px){
         padding-bottom: 60px;
     }
+    @media screen and (min-width: 1200px){
+        margin: 50px
+    }
    
 `;
 
