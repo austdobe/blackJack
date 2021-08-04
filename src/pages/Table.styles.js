@@ -3,16 +3,14 @@ import styled from 'styled-components'
 export const Wrapper = styled.div `
 
     background-color: black;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     .messageDiv{
         text-align: center;
         margin-top: 100px;
         overflow: hidden;
     }
-    
-    
-    
+
 `;
 
 export const PlayingTable = styled.div ` 
@@ -27,6 +25,5 @@ export const PlayingTable = styled.div `
         padding-bottom: 60px;
     }
    
-     
 `;
 
