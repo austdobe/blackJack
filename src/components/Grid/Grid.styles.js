@@ -22,7 +22,8 @@ export const Wrapper = styled.div `
 
     @media screen and (max-width: 760px){
         display: block;
-        text-align: center;        
+        text-align: center; 
+        margin: 0 auto;       
         
     }
    
@@ -33,11 +34,15 @@ export const Content = styled.div `
     height: fit-content;
     width: fit-content;
     display: inline-flex;
-    margin: auto;
 
     @media screen and (max-width: 760px){
-        flex-wrap: wrap ;
-        
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        justify-items: center;
+        align-content: space-evenly;
+        align-items: center;
+        margin: 0 auto;
     }
     
     
