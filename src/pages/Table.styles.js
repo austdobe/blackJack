@@ -10,6 +10,9 @@ export const Wrapper = styled.div `
     .messageDiv{
         text-align: center;
         margin-top: 100px;
+        @media screen and (min-width: 1000px){
+            font-size: 50px;
+        }
         
     }
     
@@ -21,10 +24,8 @@ export const PlayingTable = styled.div `
     border: solid 10px brown;
     padding-bottom: 5px;
     border-radius: 25%;
-    max-width: var(--maxwidth);
-    min-height: 100vh;
-    
-    
+    max-width: 100%;
+    min-height: 80vh;    
         
     @media screen and (max-width: 768px)
     {

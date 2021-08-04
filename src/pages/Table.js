@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 //Styles
 import { PlayingTable, Wrapper } from './Table.styles'
 //Components
@@ -21,6 +22,7 @@ const {
     setIsStaying,
     startNewGame
 } = InitialCards()
+const history = useHistory()
 
 console.log("Player: " + player.count)
 console.log("Dealer: " + dealer.count)
@@ -85,7 +87,8 @@ console.log("Dealer: " + dealer.count)
                 }     
             />
             :<div>
-                <Button text='New Game' callback={()=>startNewGame()}></Button>
+                <Button text='New Game' value='#' callback={()=>startNewGame()
+               }></Button>
             </div>
             }
         </Wrapper>

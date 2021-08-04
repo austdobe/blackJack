@@ -33,6 +33,10 @@ export const Content = styled.div `
     font-size: 30px;
     vertical-align: middle;
 
+    @media screen and (min-width: 1000px){
+        font-size: 50px;
+    }
+
     .topRank{
         position: absolute;
         text-align: left;

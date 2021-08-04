@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div `
     display: grid;
-    grid-template-columns:minmax(25%, 50%) repeat(auto-fill, minmax(200px, 75%));
+    grid-template-columns:minmax(25%, 40%) repeat(auto-fill, minmax(200px, 60%));
     grid-template-rows: auto;
     grid-auto-flow: row;
     justify-content: space-evenly;

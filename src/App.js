@@ -13,7 +13,7 @@ import { GlobalStyle } from './GlobalStyles';
 
 const App = () => (
     <Router>
-      <Header />
+      <Header path='#'/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/game' element={<Table />} />

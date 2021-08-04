@@ -7,11 +7,11 @@ import { Wrapper, Content} from './header.styles';
 const Header = () =>(
     <Wrapper>
         <Content>
-            <Link to='/'>
+            <Link className='links' to='/'>
                 <h1>Home</h1>
             </Link>
                     
-            <Link to='/game'>
+            <Link className='links' to='/game'>
                 <h1>Black Jack</h1>
             </Link>
         </Content>
