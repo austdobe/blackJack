@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div ` 
+export const Wrapper = styled.div `
+
     background-color: black;
     height: 100%;
     overflow: hidden;
     .messageDiv{
         text-align: center;
         margin-top: 100px;
+        
+        
     }
+    
     
     
 `;
@@ -23,6 +27,7 @@ export const PlayingTable = styled.div `
     @media screen and (max-width: 768px){
         padding-bottom: 60px;
     }
+   
      
 `;
 

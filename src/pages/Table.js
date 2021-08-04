@@ -29,7 +29,7 @@ console.log("Dealer: " + dealer.count)
     
         <Wrapper>
             <PlayingTable>
-                {!gameComplete ?
+                
                     <div>
                         <Grid header="Dealer's Cards">
                             {dealer.cards.map((card, index )=>(
@@ -53,6 +53,8 @@ console.log("Dealer: " + dealer.count)
                             
                         </Grid>
                     </div>
+                    {!gameComplete ?
+                    <span></span>
                     :
                     <div className="messageDiv">
                     <h1>{message}</h1>
