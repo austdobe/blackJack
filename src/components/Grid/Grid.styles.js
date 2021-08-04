@@ -11,7 +11,7 @@ export const Wrapper = styled.div `
     align-items: center;
     box-sizing: border-box;
     width: 100%;
-    height: 50vh;
+    height: fit-content;
 
 
     @media screen and (max-width: 760px){
