@@ -14,12 +14,14 @@ const {
     player,
     dealer,
     purse,
+    gameComplete, 
+    message,
     setIsAddingCards,
     setIsStaying
 } = InitialCards()
 
-console.log("Player: " + player.cards)
-console.log("Dealer: " + dealer.cards)
+console.log("Player: " + player.count)
+console.log("Dealer: " + dealer.count)
 
       
 
@@ -27,38 +29,57 @@ console.log("Dealer: " + dealer.cards)
     
         <Wrapper>
             <PlayingTable>
-                <Grid header="Dealer's Cards">
-                    {dealer.cards.map((card, index )=>(
-                        
-                        <Card
-                            key={index}
-                            rank={card.rank}
-                            suit={card.suit}
-                        />
-                    ))}
-                    
-                </Grid>
-                <Grid header = "Your Cards">
-                   {player.cards.map((card, index) =>(
-                    <Card
-                        key={index}
-                        rank={card.rank}
-                        suit={card.suit}
-                        />
-                    ))}
-                    
-                </Grid>
-            </PlayingTable>
-            <ControlBar 
+                {!gameComplete ?
+                    <div>
+                        <Grid header="Dealer's Cards">
+                            {dealer.cards.map((card, index )=>(
+                                
+                                <Card
+                                    key={index}
+                                    rank={card.rank}
+                                    suit={card.suit}
+                                />
+                            ))}
+                            
+                        </Grid>
+                        <Grid header = "Your Cards">
+                        {player.cards.map((card, index) =>(
+                            <Card
+                                key={index}
+                                rank={card.rank}
+                                suit={card.suit}
+                                />
+                            ))}
+                            
+                        </Grid>
+                    </div>
+                    :
+                    <div className="messageDiv">
+                    <h1>{message}</h1>
+                    <p>
+                        Player Count: 
+                        <span>
+                            {player.count}
+                        </span>
+                    </p>
+                    <p>
+                        Dealer Count: <span>
+                            {dealer.count}
+                        </span>
+                    </p>
+                </div>
+                }   
+                </PlayingTable>
+            
+            <ControlBar   
                 money={purse}
                 count={player.count} callbackOne ={
                     ()=> setIsAddingCards(true)
                 }
                 callbackTwo ={
                     ()=> setIsStaying(true)
-                }
-                
-                />
+                }     
+            />
             
         </Wrapper>
         

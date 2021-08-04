@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import { useState, useEffect } from 'react';
-import update from 'react-addons-update';
 
 
 const initialPlayer = {
@@ -23,6 +22,7 @@ export const InitialCards = () =>{
   const [newGame, setNewGame]=useState(true);
   const [purse, setPurse]=useState(200)
   const [message, setMessage]=useState('')
+  const [gameComplete, setGameComplete]=useState(false)
   
   
   //Create 52 card Deck by matching number with each suit
@@ -60,26 +60,28 @@ export const InitialCards = () =>{
   }
   const setHands = (cardCount) =>{
     for ( let j = 0; j < cardCount; j++){
-         if(j > 0){ 
+        //  if(j > 0){ 
+          // tempDeck = updatedDeck
+          // tempPlayer.cards.push({rank:tempDeck[j].rank, suit:tempDeck[j].suit})
+          // updatedDeck = tempDeck.slice(1)
+          // console.log(updatedDeck)
+          // setDeck(updatedDeck)
+          // tempDealer.cards.push([])
+          
+          
+        //  }
+        //  else{
           tempDeck = updatedDeck
           tempPlayer.cards.push({rank:tempDeck[j].rank, suit:tempDeck[j].suit})
-          let newDeck = tempDeck.slice(1)
           // console.log(newDeck)
+          let newDeck = tempDeck.slice(1)
           tempDealer.cards.push({rank:newDeck[j].rank, suit:newDeck[j].suit})
           updatedDeck=newDeck.slice(1)
-          setDeck(updatedDeck);
           console.log(updatedDeck)
-         }
-         else{
-          tempDeck = updatedDeck
-          tempPlayer.cards.push({rank:tempDeck[j].rank, suit:tempDeck[j].suit})
-          tempDealer.cards.push([])
-          let newDeck = tempDeck.slice(1)
-          updatedDeck=newDeck.slice(1)
-          setDeck(updatedDeck);
-          console.log(updatedDeck)
+          setDeck(updatedDeck)
           
-        }
+          
+        // }
         
     }
     setPlayer({
@@ -90,9 +92,10 @@ export const InitialCards = () =>{
       cards:tempDealer.cards,
       count:getCount(tempDealer.cards)
     });
+    
   }
   const addCard = () => {
-    tempCard = deck[0]
+    tempCard = deck[1]
     console.log("temp " + tempCard)
     tempPlayer.cards.push({rank:tempCard.rank, suit:tempCard.suit})
     updatedDeck = deck.slice(1)
@@ -105,17 +108,19 @@ export const InitialCards = () =>{
     }));
   }
   const stay=()=>{
-      tempCard = deck[0]
+    
+      tempCard = deck[1]
       console.log("temp " + tempCard)
       tempDealer.cards.push({rank:tempCard.rank, suit:tempCard.suit})
       updatedDeck = deck.slice(1)
-      setDeck(updatedDeck)
+      
       setDealer( prev => ({
-          
-        cards: [...prev.cards, update(dealer.cards[0], {$set:tempDealer.cards[0]})],
-        count: getCount(dealer.cards)
+         
+        cards: [...prev.cards.slice(0, 1), tempDealer.cards[0]],
+        count: getCount([...prev.cards, tempDealer.cards[0]])
     
     }));
+    console.log(dealer.count)
   }
 
 
@@ -130,16 +135,26 @@ export const InitialCards = () =>{
    
   // }
   const checkWin = ()=>{
-    if(player.count === 21 && dealer.count < 21){
-        setMessage("BlackJack!! You Won!")
-    } else if(player.count > dealer.count && player.count <= 21){
-      setMessage("You beat the Dealer!")
+    if(isStaying){
+      if(player.count === 21 && dealer.count < 21){
+          setGameComplete(true);
+          setMessage("BlackJack!! You Won!")
+          
+      } else if(player.count > dealer.count && player.count <= 21){
+        setGameComplete(true);
+        setMessage("You beat the Dealer!")
+        
+      }else if(player.count<dealer.count){
+        setGameComplete(true);
+        setMessage("Dealer won..")
+        
+      }
     }else if(player.count > 21){
+      setGameComplete(true);
       setMessage('Bust... better luck next time.')
-    }else{
-      setMessage("Dealer won..")
+      
     }
-    
+  
   }
   
     
@@ -168,22 +183,27 @@ export const InitialCards = () =>{
     useEffect(()=>{
       if(!newGame && isAddingCards){
         addCard()
+        checkWin()
+        setDeck(updatedDeck)
         setIsAddingCards(false)
       }else if(newGame){
         shuffleDeck()
-        setDeck(updatedDeck)
         setHands(2)
+        setDeck(updatedDeck)
         setNewGame(false)
       }else if(isStaying){
         stay()
+        setDealer(prev =>({
+          cards:[...prev.cards], 
+          count:getCount(dealer.cards)
+        }))
+        setDeck(updatedDeck)
         setIsStaying(false)
+        checkWin()
       } 
     }, [updatedDeck, newGame, isAddingCards, tempDealer, tempPlayer])
-    // console.log(deck)
-    // console.log('player '+ player)
-    // console.log('dealer '+ dealer)
 
-    return {player, dealer, purse, setIsAddingCards, setIsStaying}
+    return {player, dealer, purse, gameComplete, message, setIsAddingCards, setIsStaying}
 };
 
 

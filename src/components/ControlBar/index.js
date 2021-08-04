@@ -4,7 +4,9 @@ import React from "react";
 import { Wrapper, Content, Button, Text } from "./ControlBar.styles";
 
 
-const ControlBar = ({money, count, callbackOne, callbackTwo})=>(
+
+const ControlBar = ({money, count, callbackOne, callbackTwo})=>
+(
     <Wrapper>
         <Content>
             <Button className="hit" type="button" onClick={callbackOne}>Hit</Button>
@@ -16,13 +18,11 @@ const ControlBar = ({money, count, callbackOne, callbackTwo})=>(
             <Text>
                 Count: 
                 <span>{" " + count}</span>
-            </Text>
-            
-        
-              
-               
+            </Text> 
         </Content>
+      
     </Wrapper>
 )
+
 
 export default ControlBar
