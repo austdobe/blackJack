@@ -14,11 +14,12 @@ const {
     player,
     dealer,
     purse,
-    setIsAddingCards
+    setIsAddingCards,
+    setIsStaying
 } = InitialCards()
 
-console.log(player)
-console.log(dealer)
+console.log("Player: " + player.cards)
+console.log("Dealer: " + dealer.cards)
 
       
 
@@ -28,6 +29,7 @@ console.log(dealer)
             <PlayingTable>
                 <Grid header="Dealer's Cards">
                     {dealer.cards.map((card, index )=>(
+                        
                         <Card
                             key={index}
                             rank={card.rank}
@@ -47,7 +49,16 @@ console.log(dealer)
                     
                 </Grid>
             </PlayingTable>
-            <ControlBar money={purse}count={player.count} callback={()=> setIsAddingCards(true)}/>
+            <ControlBar 
+                money={purse}
+                count={player.count} callbackOne ={
+                    ()=> setIsAddingCards(true)
+                }
+                callbackTwo ={
+                    ()=> setIsStaying(true)
+                }
+                
+                />
             
         </Wrapper>
         

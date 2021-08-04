@@ -4,11 +4,11 @@ import React from "react";
 import { Wrapper, Content, Button, Text } from "./ControlBar.styles";
 
 
-const ControlBar = ({money, count, callback})=>(
+const ControlBar = ({money, count, callbackOne, callbackTwo})=>(
     <Wrapper>
         <Content>
-            <Button className="hit" type="button" onClick={callback}>Hit</Button>
-            <Button className="stay" type="button" onClick={callback}>Stay</Button>
+            <Button className="hit" type="button" onClick={callbackOne}>Hit</Button>
+            <Button className="stay" type="button" onClick={callbackTwo}>Stay</Button>
             <Text>
                 Wallet:
                 <span>{" " + money}</span>

@@ -9,6 +9,7 @@ import { Wrapper, Content } from './Cards.styles';
 const Card = ( { suit, rank } ) =>{
     let color = (suit === '♦' || suit === '♥') ? 'card-red' : 'card';
     
+    
 return(  
     <Wrapper>
         <Content className={suit ? `${color}`: 'background'}>
