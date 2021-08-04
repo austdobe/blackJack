@@ -8,8 +8,7 @@ export const Wrapper = styled.div `
     .messageDiv{
         text-align: center;
         margin-top: 100px;
-        
-        
+        overflow: hidden;
     }
     
     
