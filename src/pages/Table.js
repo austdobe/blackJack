@@ -5,6 +5,7 @@ import { PlayingTable, Wrapper } from './Table.styles'
 import Card from '../components/Cards';
 import Grid from '../components/Grid';
 import ControlBar from '../components/ControlBar';
+import Button from '../components/Button'
 //Utils
 import { InitialCards } from '../utils/gameLogic'
 
@@ -17,7 +18,8 @@ const {
     gameComplete, 
     message,
     setIsAddingCards,
-    setIsStaying
+    setIsStaying,
+    startNewGame
 } = InitialCards()
 
 console.log("Player: " + player.count)
@@ -72,9 +74,9 @@ console.log("Dealer: " + dealer.count)
                 </div>
                 }   
                 </PlayingTable>
-            
+            {!gameComplete ?
             <ControlBar   
-                money={purse}
+                
                 count={player.count} callbackOne ={
                     ()=> setIsAddingCards(true)
                 }
@@ -82,7 +84,10 @@ console.log("Dealer: " + dealer.count)
                     ()=> setIsStaying(true)
                 }     
             />
-            
+            :<div>
+                <Button text='New Game' callback={()=>startNewGame()}></Button>
+            </div>
+            }
         </Wrapper>
         
     

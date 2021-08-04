@@ -41,6 +41,18 @@ export const InitialCards = () =>{
       count:0
   }
   let tempDeck = []
+  const startNewGame = () =>{
+    setPlayer(initialPlayer);
+    setDealer(initialDealer)
+    setDeck({});
+    setIsAddingCards(false);
+    setIsStaying(false);
+    setNewGame(true);
+    setPurse(200)
+    setMessage('')
+    setGameComplete(false)
+    setDealerStay(false)
+  }
   const shuffleDeck=()=>{
     //running a loop to separate the 4 suits, Hearts/Clubs/Diamonds/Spades
     for( let suitCounter = 0; suitCounter<suits.length; suitCounter ++ ) {
@@ -201,7 +213,7 @@ export const InitialCards = () =>{
       }
     }, [updatedDeck, newGame, isAddingCards, tempDealer, tempPlayer])
 
-    return {player, dealer, purse, gameComplete, message, setIsAddingCards, setIsStaying}
+    return {player, dealer, purse, gameComplete, message, setIsAddingCards, setIsStaying, startNewGame}
 };
 
 

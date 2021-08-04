@@ -11,10 +11,10 @@ const ControlBar = ({money, count, callbackOne, callbackTwo})=>
         <Content>
             <Button className="hit" type="button" onClick={callbackOne}>Hit</Button>
             <Button className="stay" type="button" onClick={callbackTwo}>Stay</Button>
-            <Text>
+            {/* <Text>
                 Wallet:
                 <span>{" " + money}</span>
-            </Text>
+            </Text> */}
             <Text>
                 Count: 
                 <span>{" " + count}</span>
