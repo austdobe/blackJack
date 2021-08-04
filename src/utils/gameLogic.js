@@ -114,13 +114,15 @@ export const InitialCards = () =>{
         console.log("temp " + tempCard)
         tempDealer.cards.push({rank:tempCard.rank, suit:tempCard.suit})
         updatedDeck = deck.slice(1)
-        setDealerStay(true)
         setDealer( prev => ({
           
           cards: [...prev.cards, tempDealer.cards[0]],
           count: getCount([...prev.cards, tempDealer.cards[0]])
       
         }));
+        if(dealer.count < 18){
+          setDealerStay(true)
+        }
       } else{
         setDealerStay(true)
       }
