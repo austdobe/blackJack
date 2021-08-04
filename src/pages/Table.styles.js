@@ -5,6 +5,7 @@ export const Wrapper = styled.div `
     background: black;
     height: 100vh fit-content;
     width: 100%;
+    overflow: hidden;
     
     
     .messageDiv{
