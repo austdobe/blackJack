@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 
 export const Wrapper = styled.div `
@@ -16,9 +17,7 @@ export const Content = styled.div `
     color: white;
     text-decoration: none;
     outline:none;
-    cursor: pointer;
+    cursor: pointer
     
-   
-`;
-
-
+;
+`

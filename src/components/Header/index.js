@@ -9,11 +9,11 @@ const Header = () =>(
         <Content>
             <Link to='/'>
                 <h1>Home</h1>
-            </Link>           
+            </Link>
+                    
             <Link to='/game'>
                 <h1>Black Jack</h1>
             </Link>
-            
         </Content>
     </Wrapper>
 );

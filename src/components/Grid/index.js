@@ -5,7 +5,7 @@ import { Wrapper, Content } from './Grid.styles';
 const Grid = ({ header, children }) => (
 
     <Wrapper>
-        <h3>{header}</h3>
+        <h2>{header}</h2>
         <Content>{children}</Content>
     </Wrapper>
 

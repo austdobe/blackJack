@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div `
     display: grid;
-    grid-template-columns:25% repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns:minmax(25%, 50%) repeat(auto-fill, minmax(200px, 75%));
     grid-template-rows: auto;
     grid-auto-flow: row;
     justify-content: space-evenly;
@@ -11,19 +11,13 @@ export const Wrapper = styled.div `
     align-items: center;
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
-    
-   
-    
-    
-    
-    
-    
+    height: 50vh;
+
 
     @media screen and (max-width: 760px){
         display: block;
         text-align: center; 
-        margin: 0 auto;       
+        margin: 0 auto;      
         
     }
    
@@ -34,6 +28,7 @@ export const Content = styled.div `
     height: fit-content;
     width: fit-content;
     display: inline-flex;
+    
 
     @media screen and (max-width: 760px){
         flex-wrap: wrap;

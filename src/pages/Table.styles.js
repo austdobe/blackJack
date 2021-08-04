@@ -7,7 +7,6 @@ export const Wrapper = styled.div `
     width: 100%;
     overflow: hidden;
     
-    
     .messageDiv{
         text-align: center;
         margin-top: 100px;
@@ -24,9 +23,12 @@ export const PlayingTable = styled.div `
     border-radius: 25%;
     max-width: var(--maxwidth);
     min-height: 100vh;
+    
+    
+        
     @media screen and (max-width: 768px)
     {
-        padding-bottom: 60px;
+       padding-bottom: 60px;
     }
     @media screen and (min-width: 1200px){
         margin: 50px;
