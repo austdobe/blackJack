@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import cardBack from '../../images/cardBackground.jpg'
 
 export const Wrapper = styled.div ` 
+    display: inline-block;
+    margin: 20px;
     color: var(--darkGrey);
     background: var(--white);
     border-radius: 15px;
@@ -29,6 +31,7 @@ export const Content = styled.div `
     border-radius: 15px;
     position: relative;
     font-size: 30px;
+    vertical-align: middle;
 
     .topRank{
         position: absolute;
