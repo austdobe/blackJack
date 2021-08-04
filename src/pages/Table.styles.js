@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div `
     position: absolute;
     background: black;
-    height: 100vh;
+    height: 100vh fit-content;
     width: 100%;
     
     
@@ -12,7 +12,7 @@ export const Wrapper = styled.div `
         margin-top: 100px;
         
     }
-
+    
 `;
 
 export const PlayingTable = styled.div ` 
@@ -23,7 +23,8 @@ export const PlayingTable = styled.div `
     border-radius: 25%;
     max-width: var(--maxwidth);
     min-height: 500px;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px)
+    {
         padding-bottom: 60px;
     }
     @media screen and (min-width: 1200px){
