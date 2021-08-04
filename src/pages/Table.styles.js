@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div `
-
-    background-color: black;
+    position: absolute;
+    background: black;
     height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    
+    
     .messageDiv{
         text-align: center;
         margin-top: 100px;
-        overflow: hidden;
+        
     }
 
 `;

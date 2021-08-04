@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.div ` 
     background: var(--medGrey);
     text-align: center;
+    position: relative;
+    bottom: 0;
 
 
 `;
