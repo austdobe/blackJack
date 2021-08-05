@@ -5,6 +5,7 @@ export const Wrapper = styled.div `
     margin: 0 auto;
     background: rgb(0, 0, 0);
     background-size: 100%;
+    overflow: hidden;
 
     h1 {        
         @media screen and (max-width: 768px){
@@ -41,14 +42,28 @@ export const Content = styled.div `
         @media screen and (max-width: 768px){
             width: 100%
         }
+        ul{
+            justify-items: center;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            
+        }
         
         li{
-            margin: 0 20px;
-            padding: 10px 20px;
+            
             list-style: none;
             display: inline-flex;
             border-radius: 10px;
             cursor: pointer;
+            @media screen and (max-width: 768px){
+                
+                padding: 0 10px;
+                
+            }
+            @media screen and (min-width: 800px){
+                margin: 0 20px;
+            }
         }
         li:hover{
             background-color: var(--darkGrey);
@@ -64,6 +79,13 @@ export const Content = styled.div `
     .rules{
         width: 100%;
         text-align: center;
+        ul{
+            justify-items: center;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            
+        }
         li{
             padding: 5px;
             list-style: armenian;
@@ -92,15 +114,17 @@ export const Content = styled.div `
         width: 100%;
         margin: 20px;
         text-align: center;
+       
         li{
-            padding: 5px;
+            padding-left: 5px;
             list-style: none;
             display: inline-flex;
         }
 
 
         @media screen and (max-width: 768px){
-            width: 100%
+            margin: 0;
+            line-height: 20px;
         }
     }
 

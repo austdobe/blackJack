@@ -40,26 +40,26 @@ const LandingPage = ()=>(
 
             </Section>
             <Section className="underHood" id='aboutBuild'>
-                <h3>Under The Hood</h3>
+                <h2>Under The Hood</h2>
                 <h4>Technologies used</h4>
                 <ul>
                     <li>
-                        React
+                        React |
                     </li>
                     <li>
-                        React Hooks
+                        React Hooks |
                     </li>
                     <li>
-                        React Router Dom V6 (Currently in Beta)
+                        React Router Dom V6 (Currently in Beta) |
                     </li>
                     <li>
-                        Styled Components
+                        Styled Components |
                     </li>
                     <li>
-                        Custom CSS
+                        Custom CSS |
                     </li>
                     <li>
-                        Javascript / JSX
+                        Javascript / JSX |
                     </li>
                 </ul>
 
