@@ -12,7 +12,7 @@ const Header = () =>(
             </Link>
                     
             <Link className='links' to='/game'>
-                <h1>Black Jack</h1>
+                <h1>Play</h1>
             </Link>
         </Content>
     </Wrapper>

@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div `
     background: linear-gradient(
-        to bottom, rgba(0, 0, 0, 0)
-        41%, rgba( 0, 0, 0, 0.65)
+        to bottom, rgba(0, 0, 0, .25)
+        41%, rgba( 0, 0, 0, 0.85)
         100%
     ), 
     url(${({image}) => image}), var(--darkGrey);
-    Background-size: 100%, cover;
+    background-size: 100%, cover;
     background-position: center;
     height: 600px;
     position: relative;
-    animation: animateHeroImage 1s;
+    animation: animateWelcomeImage 2s;
 
-    @keyframes animateHeroImage{
+    @keyframes animateWelcomeImage {
         from{
             opacity: 0;
         } to{
@@ -32,11 +32,22 @@ export const Content = styled.div `
 export const Text = styled.div `
     z-index: 100;
     max-width: 700px;
-    position: absolute;
-    bottom: 40px;
-    margin-right: 20px;
+    background: linear-gradient(
+        to bottom, rgba(0, 0, 0, .85)
+        41%, rgba( 0, 0, 0, 0.45)
+        100%
+    );
+    border-radius: 25%;
+    padding: 10px 20px;
+    vertical-align: middle;
+    text-align: center;
     min-height: 100px;
     color: var(--white);
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    
     h1{
         font-size: var(--fontSuperBig);
 

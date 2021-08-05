@@ -1,19 +1,24 @@
 import React from 'react';
 //Styles
 import { Wrapper, Content, Section } from './Landing.styles';
+//Components
 import WelcomeSection from '../components/WelcomeSection';
+//Images
+import WelcomeImage from '../images/welcome.PNG'
 
 const LandingPage = ()=>(
+<>
+    <WelcomeSection 
+        id="welcome"
+        image={WelcomeImage}
+        title='Welcome to Blackjack'
+        text='Are the odds in your favor?'
+    />
     <Wrapper>
         <Content>
-            <WelcomeSection id="welcome">
-
-                <h1> Hello and welcome to my page</h1>
-                <p> You are probably here to see my work... You can click the top right option to go directly to the game, or check out below for more detail on the process.</p>
-
-            </WelcomeSection>
         </Content>
     </Wrapper>
+</>
 )
 
 export default LandingPage
