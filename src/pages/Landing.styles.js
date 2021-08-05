@@ -56,6 +56,7 @@ export const Content = styled.div `
             display: inline-flex;
             border-radius: 10px;
             cursor: pointer;
+            padding: 5px 10px;
             @media screen and (max-width: 768px){
                 
                 padding: 0 10px;
