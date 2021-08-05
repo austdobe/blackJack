@@ -65,9 +65,9 @@ const LandingPage = ()=>(
 
             </Section>
             <Section className="profileCard" id='meetMe'>
-                <h3>Meet the Developer</h3>
+                <h2>Meet the Developer</h2>
                 <div >
-                    <Image src={Headshot} alt="personal headshot"/>
+                    <Image src={Headshot} alt="personal-head-shot"/>
                     <h3>Austin Dober</h3>
                     <p>
                         Merging years of customer service and healthcare experience with Full Stack Development. I help bring clarity and quality to technical problems and their users.
