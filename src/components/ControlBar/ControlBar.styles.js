@@ -4,6 +4,7 @@ export const Wrapper = styled.div `
     background: var(--medGrey);
     text-align: center;
     position: relative;
+    height: 100px;
     bottom: 0;
 
 

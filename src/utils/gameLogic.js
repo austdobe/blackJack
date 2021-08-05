@@ -19,11 +19,14 @@ export const InitialCards = () =>{
   const [deck, setDeck]=useState({});
   const [isAddingCards, setIsAddingCards]=useState(false);
   const [isStaying, setIsStaying]=useState(false);
+  const [deckIsSet, setDeckIsSet]=useState(false)
   const [newGame, setNewGame]=useState(true);
   const [purse, setPurse]=useState(200)
   const [message, setMessage]=useState('')
   const [gameComplete, setGameComplete]=useState(false)
   const [dealerStay, setDealerStay]=useState(false)
+  const [wins, setWins]=useState(0);
+  const [losses, setLosses]=useState(0)
   
   
   //Create 52 card Deck by matching number with each suit
@@ -44,10 +47,11 @@ export const InitialCards = () =>{
   const startNewGame = () =>{
     setPlayer(initialPlayer);
     setDealer(initialDealer)
-    setDeck({});
+    setDeck([]);
     setIsAddingCards(false);
-    setIsStaying(false);
     setNewGame(true);
+    setIsStaying(false)
+    setDeckIsSet(false)
     setPurse(200)
     setMessage('')
     setGameComplete(false)
@@ -70,6 +74,7 @@ export const InitialCards = () =>{
             updatedDeck[i] = updatedDeck[ randomNum ];
             updatedDeck[ randomNum ] = tempCard;
     };
+    
   }
   const setHands = (cardCount) =>{
     for ( let j = 0; j < cardCount; j++){
@@ -215,7 +220,7 @@ export const InitialCards = () =>{
       }
     }, [updatedDeck, newGame, isAddingCards, tempDealer, tempPlayer])
 
-    return {player, dealer, purse, gameComplete, message, setIsAddingCards, setIsStaying, startNewGame}
+    return {player, dealer, purse, gameComplete, message, wins, losses, isStaying, deckIsSet, setIsAddingCards, setIsStaying, startNewGame}
 };
 
 

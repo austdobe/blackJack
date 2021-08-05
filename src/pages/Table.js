@@ -15,10 +15,13 @@ export const Table = () =>{
 const {
     player,
     dealer,
+    wins,
+    losses,
     purse,
     gameComplete, 
     message,
     isStaying,
+    deckIsSet,
     setIsAddingCards,
     setIsStaying,
     startNewGame
@@ -34,9 +37,8 @@ console.log("Dealer: " + dealer.count)
     
         <Wrapper>
             <PlayingTable>
-                
                     <div>
-                        {isStaying ?
+                        {/* {isStaying && deckIsSet ? */}
                         <Grid header="Dealer's Cards">
                             {dealer.cards.map((card, index )=>(
                                 
@@ -48,18 +50,18 @@ console.log("Dealer: " + dealer.count)
                             ))}
                             
                         </Grid>
-                        :
-                        <Grid header="Dealer's Cards">
-                                <Card
-                                    rank={dealer.cards[0].rank}
-                                    suit={dealer.cards[0].suit}
-                                />
-                                <Card
-                                    rank=''
-                                    suit=''
-                                />
+                        {/* // :
+                        // <Grid header="Dealer's Cards">
+                        //         <Card */
+                        //             rank={dealer.cards[0].rank}
+                        //             suit={dealer.cards[0].suit}
+                        //         />
+                        //         <Card
+                        //             rank=''
+                        //             suit=''
+                        //         />
                             
-                        </Grid>
+                        // </Grid>
                         }
                         <Grid header = "Your Cards">
                         {player.cards.map((card, index) =>(
@@ -93,7 +95,6 @@ console.log("Dealer: " + dealer.count)
                 </PlayingTable>
             {!gameComplete ?
             <ControlBar   
-                
                 count={player.count} callbackOne ={
                     ()=> setIsAddingCards(true)
                 }

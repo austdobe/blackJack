@@ -25,16 +25,17 @@ export const PlayingTable = styled.div `
     padding-bottom: 5px;
     border-radius: 25%;
     max-width: 100%;
-    min-height: 80vh;    
+    min-height: 80vh;
+    margin: 50px;
+    padding: 50px;
+            
         
     @media screen and (max-width: 768px)
     {
        padding-bottom: 60px;
     }
     @media screen and (min-width: 1200px){
-        margin: 50px;
-        padding: 50px;
-        
+       
     }
    
 `;

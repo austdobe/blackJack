@@ -5,7 +5,7 @@ import { Wrapper, Content, Button, Text } from "./ControlBar.styles";
 
 
 
-const ControlBar = ({money, count, callbackOne, callbackTwo})=>
+const ControlBar = ({money, count, win, lose, callbackOne, callbackTwo})=>
 (
     <Wrapper>
         <Content>
@@ -18,7 +18,15 @@ const ControlBar = ({money, count, callbackOne, callbackTwo})=>
             <Text>
                 Count: 
                 <span>{" " + count}</span>
-            </Text> 
+            </Text>
+            {/* <Text>
+                Wins:
+                <span>{" "+ win}</span>
+            </Text>
+            <Text>
+                Losses:
+                <span>{" "+ lose}</span>
+            </Text>  */}
         </Content>
       
     </Wrapper>
