@@ -30,12 +30,10 @@ export const PlayingTable = styled.div `
     padding: 50px;
             
         
-    @media screen and (max-width: 768px)
+    @media screen and (max-width: 760px)
     {
+       padding: 10px; 
        padding-bottom: 60px;
-    }
-    @media screen and (min-width: 1200px){
-       
     }
    
 `;

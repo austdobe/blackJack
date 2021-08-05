@@ -20,8 +20,8 @@ export const Wrapper = styled.div `
        color: red;
    }
    @media screen and (max-width: 760px){
-        height: 150px;
-        width: 90px;
+        height: 120px;
+        width: 70px;
    }
 `;
 
