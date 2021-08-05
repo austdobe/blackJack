@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div `
     background: var(--darkGrey);
     padding: 0 20px;
+    overflow: hidden;
     
    
 `;
@@ -16,6 +17,7 @@ export const Content = styled.div `
     padding: 20px 0;
     margin: 0 auto;
     color: white;
+    font-size: 20px;
     text-decoration: none;
     outline:none;
     cursor: pointer;
@@ -24,6 +26,7 @@ export const Content = styled.div `
     .links{
         text-decoration: none;
         color: black;
+        font-weight: 300;
 
     }
     .links:hover{
@@ -45,21 +48,23 @@ export const Content = styled.div `
         display: inline-block;
         color: white;
         text-align: center;
+        background-color: var(--darkGrey);
         padding: 14px 16px;
         text-decoration: none;
     }
 
     li a:hover, .dropdown:hover .dropdownButton {
-        background-color: white;
+        background-color: var(--darkGrey) ;
+        
     }
 
     li.dropdown {
         display: inline-block;
     }
-
     .dropdownContent {
         display: none;
         position: absolute;
+        right: 0;
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -67,15 +72,15 @@ export const Content = styled.div `
     }
 
     .dropdownContent a {
-        color: black;
+        color: white;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
-        text-align: left;
+        text-align: center;
     }
 
     .dropdownContent a:hover   {
-        background-color: #f1f1f1;
+        background-color: var(--medGrey);
     }
 
     .dropdown:hover .dropdownContent {

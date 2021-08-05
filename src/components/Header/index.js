@@ -16,9 +16,8 @@ const Header = () =>(
             </Link>
             <ul>
                 <li className='dropdown'> 
-                    <a href='javascript:void(0)' className='dropdownButton'>Options</a>
+                    <a href='javascript:void(0)' className='dropdownButton'>More Options</a>
                     <div className="dropdownContent">
-                        
                         <a href="https://austdobe.github.io" target='_blank' rel="noreferrer">My Portfolio</a>
                         <a href="https://www.github.com/austdobe" target='_blank' rel="noreferrer">My Github Profile</a>
                     </div>
