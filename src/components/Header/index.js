@@ -20,7 +20,7 @@ const Header = () =>(
                             <h1>Play Blackjack</h1>
                         </Link>
                         <a href="https://austdobe.github.io" target='_blank' rel="noreferrer">My Portfolio</a>
-                        <a href="https://www.github.com/austdobe" target='_blank' rel="noreferrer">My Github Profile</a>
+                        <a href="https://www.github.com/austdobe" target='_blank' rel="noreferrer">My GitHub Profile</a>
                     </div>
                 </li>
             </ul>
