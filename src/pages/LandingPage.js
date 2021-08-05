@@ -78,13 +78,13 @@ const LandingPage = ()=>(
                     </p>
                     <ul>
                         <li>
-                            <a href='www.austdobe.github.io'>Portfolio</a>
+                            <a href='https://www.austdobe.github.io' target="_blank" rel='noreferrer'>Portfolio</a>
                         </li>
                         <li>
-                            <a href='www.github.com/austobe'>Github</a>
+                            <a href='www.github.com/austobe' target="_blank" rel='noreferrer'>Github</a>
                         </li>
                         <li>
-                            <a href='https://docs.google.com/document/d/1_xVJg0XkSRHm0WnBOPPfeAEx8eOQtpS4RPgH-AxphxQ/edit?usp=sharing'>Resume</a>
+                            <a href='https://docs.google.com/document/d/1_xVJg0XkSRHm0WnBOPPfeAEx8eOQtpS4RPgH-AxphxQ/edit?usp=sharing' target="_blank" rel='noreferrer'>Resume</a>
                         </li>
                     </ul>
                     
