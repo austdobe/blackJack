@@ -26,11 +26,12 @@ export const Content = styled.div `
     .links{
         text-decoration: none;
         color: black;
-        font-weight: 300;
-
     }
     .links:hover{
         opacity: 0.8;
+    }
+    .dropLink{
+        background-color: var(--medGrey);
     }
     ul {
         list-style-type: none;
