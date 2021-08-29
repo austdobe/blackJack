@@ -65,11 +65,15 @@ export const Content = styled.div `
     .dropdownContent {
         display: none;
         position: absolute;
-        right: 0;
+        right:0 + var(--maxWidth);
+        top: 80px;
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
+        @media screen and (max-width:1270px){
+            right: 0;
+        }
     }
 
     .dropdownContent a {
